@@ -126,7 +126,7 @@ package starling.events
          *  method uses this method internally. */
         internal function invokeEvent(event:Event):Boolean
         {
-            var listeners:Vector.<Function> = _eventListeners ?
+            var listeners:Vector.<Function> = (_eventListeners && event.type in _eventListeners) ?
                 _eventListeners[event.type] as Vector.<Function> : null;
             var numListeners:int = listeners == null ? 0 : listeners.length;
             
